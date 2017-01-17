@@ -4,9 +4,9 @@ const electron = require('electron');
 const express = require("express");
 
 // Module to control application life.
-const app = electron.app;
+const app = require('app');
 // Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow;
+const BrowserWindow = require('browser-window');
 
 const port = 1579;
 const url = 'http://localhost:' + port;
@@ -42,7 +42,7 @@ app.on('activate', function () {
 	}
 });
 
-const createWindow = function () {
+function createWindow() {
 	var mainWindow = new BrowserWindow({
 		autoHideMenuBar: true,
 		title: 'Elmono',
