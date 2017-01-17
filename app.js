@@ -1,12 +1,12 @@
 ﻿'use strict'
-// const electron = require('electron');
+const electron = require('electron');
 
 const express = require("express");
 
 // Module to control application life.
-// const app = electron.app;
+const app = electron.app;
 // Module to create native browser window.
-// const BrowserWindow = electron.BrowserWindow;
+const BrowserWindow = electron.BrowserWindow;
 
 const port = 1579;
 const url = 'http://localhost:' + port;
@@ -24,23 +24,23 @@ server.listen(port, function () {
 
 
 
-// app.on('ready', createWindow)
+app.on('ready', createWindow);
 // Quit when all windows are closed.
-// app.on('window-all-closed', function () {
-//     // On OS X it is common for applications and their menu bar
-//     // to stay active until the user quits explicitly with Cmd + Q
-//     if (process.platform !== 'darwin') {
-//         app.quit();
-//     }
-// });
+app.on('window-all-closed', function () {
+	// On OS X it is common for applications and their menu bar
+	// to stay active until the user quits explicitly with Cmd + Q
+	if (process.platform !== 'darwin') {
+		app.quit();
+	}
+});
 
-// app.on('activate', function () {
-//     // On OS X it's common to re-create a window in the app when the
-//     // dock icon is clicked and there are no other windows open.
-//     if (mainWindow === null) {
-//         createWindow();
-//     }
-// });
+app.on('activate', function () {
+	// On OS X it's common to re-create a window in the app when the
+	// dock icon is clicked and there are no other windows open.
+	if (mainWindow === null) {
+		createWindow();
+	}
+});
 
 const createWindow = function () {
 	var mainWindow = new BrowserWindow({
