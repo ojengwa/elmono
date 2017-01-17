@@ -1,6 +1,4 @@
 ﻿'use strict'
-const electron = require('electron');
-
 const express = require("express");
 
 // Module to control application life.
@@ -22,7 +20,8 @@ server.listen(port, function () {
 	console.log('Server is on.')
 });
 
-
+app.setName('Elmono');
+app.dock.setIcon(__dirname + '/nodered.png');
 
 app.on('ready', createWindow);
 // Quit when all windows are closed.
@@ -47,8 +46,11 @@ function createWindow() {
 		autoHideMenuBar: true,
 		title: 'Elmono',
 		width: 800,
+		focusable: true,
 		height: 600,
 		fullscreenable: true,
+		darkTheme: true,
+		scrollBounce: true,
 		icon: __dirname + '/nodered.png'
 	})
 	mainWindow.loadURL(url);
