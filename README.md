@@ -30,10 +30,13 @@ If you want to distribute executables of this project, the easiest way is to use
 sudo npm install -g electron-packager
 
 # build for OS X 64 bits
-electron-packager electron-node-red Node-RED --icon=nodered.icns --platform=darwin --arch=x64
+npm run pack:osx
 
 # build for Windows 64 bits
-electron-packager electron-node-red Node-RED --icon=nodered.icns --platform=win32 --arch=x64
+npm run pack:win
+
+# build for Windows 32 bits
+npm run pack:win32
 
 ```
 
