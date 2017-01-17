@@ -1,0 +1,59 @@
+{
+  "name": "sails-angular-electron",
+  "appName": "Elmono",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Basic Import and update app for excel sheets.",
+  "main": "app.js",
+  "license": "MIT",
+  "author": {
+    "name": "Bernard Ojengwa",
+    "email": "bernardojengwa@email.com",
+    "url": "ojengwa.xyz"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "start": "electron .",
+    "clean": "rm -rf ./dist ",
+    "pack": "npm run clean && electron-packager . Elmono --icon=nodered.icns --all --out=dist",
+    "pack:osx": "electron-packager . Elmono --icon=nodered.icns --platform=darwin --arch=x64 --out=dist",
+    "pack:win": "electron-packager . Elmono --icon=nodered.icns --platform=win32 --arch=x64 --out=dist",
+    "pack:win32": "electron-packager . Elmono --icon=nodered.icns --platform=win32 --arch=ia32 --out=dist",
+    "dev": "node .",
+    "electron": "^1.4.3",
+    "electron-winstaller": "*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ojengwa/elmono.git"
+  },
+  "keywords": [
+        "electron",
+        "quick",
+        "start",
+    "Rest API",
+    "UI"
+  ],
+  "bugs": {
+    "url": "https://github.com/ojengwa/elmono/issues"
+  },
+  "homepage": "https://github.com/ojengwa/elmono#readme",
+  "devDependencies": {
+    "electron-packager": "^5.0.1",
+    "electron": "^1.4.3",
+    "electron-prebuilt": "^0.37.2",
+    "electron-winstaller": "*",
+    "titlebar": "^1.3.0"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "dombo": "^3.2.0",
+    "electron-debug": "^0.1.1",
+    "jquery": "^2.1.4",
+    "sails.io.js": "^0.11.6",
+    "socket.io-client": "^1.3.6",
+  }
+}
