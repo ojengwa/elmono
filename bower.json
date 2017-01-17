@@ -1,0 +1,30 @@
+{
+  "name": "elmono",
+  "description": "Basic Import and update app for excel sheets.",
+  "main": "app.js",
+  "authors": [
+    "[object Object]"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "electron",
+    "quick",
+    "start",
+    "Rest",
+    "API",
+    "UI"
+  ],
+  "homepage": "https://github.com/ojengwa/elmono",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "^0.97.8"
+  }
+}
