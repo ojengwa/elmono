@@ -35,8 +35,6 @@ electron-packager electron-node-red Node-RED --icon=nodered.icns --platform=darw
 # build for Windows 64 bits
 electron-packager electron-node-red Node-RED --icon=nodered.icns --platform=win32 --arch=x64
 
-# build for Linux 64 bits
-electron-packager electron-node-red Node-RED --icon=nodered.icns --platform=linux --arch=x64
 ```
 
 Learn more about Electron and its API in the [documentation](http://electron.atom.io/docs/latest).
