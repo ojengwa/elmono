@@ -1,0 +1,128 @@
+﻿<!doctype html>
+<html>
+<head>
+	<title>Elmono</title>
+  <!--Import Google Icon Font-->
+  <link href="/libs/fonts/material.css" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="/libs/materialize/dist/css/materialize.min.css"  media="screen,projection"/>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper orange darken-3">
+      <a href="#!" class="brand-logo center">Elmono</a>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <div class="container">      
+  <div class="row">
+    <form class="col s12 m8 l6 offset-l3 offset-m2">
+    	<div class="header">
+    		<h6 class="title" style="text-transform: uppercase">DB Connection Config:</h6>
+    	</div>
+    	<br>
+      <div class="row">
+        <div class="input-field col s12">
+			    <select id="connection" name="connection">
+			      <option value="" disabled selected>Choose your DB Server</option>
+			      <option value="sqlserver">MS SQL Server</option>
+			      <option value="2" disabled>Oracle DB Server</option>
+			      <option value="3">MySQL/MariaDB</option>
+			    </select>
+          <label for="connection">DB Server</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="user" type="text" class="validate">
+          <label for="user">Server Username</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="pass" name="pass" type="text" class="validate">
+          <label for="pass">Server Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="host" id="host" type="text"  class="validate">
+          <label for="host">Server Host</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="host" id="host" type="text"  class="validate">
+          <label for="host">Database Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+			    <p>
+			      <input type="checkbox" name="options[encrypt]" id="where" />
+			      <label for="where">My Server is hosted on Windows Azure.</label>
+			    </p>
+        </div>
+      </div>
+      <br>
+    	<div class="header">
+    		<h6 class="title" style="text-transform: uppercase">Table Configuration:</h6>
+    	</div>
+    	<br>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="table_name" type="text" class="validate">
+          <label for="table_name">Table Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="fields" type="text" placeholder="Use comma to separate each field (eg: account, dob)" class="validate">
+          <label for="fields">Fields to import.</label></label>
+        </div>
+      </div>
+      <br>
+    	<div class="header">
+    		<h6 class="title" style="text-transform: uppercase">Excel Configuration:</h6>
+    	</div>
+    	<br>
+      <div class="row">
+		    <div class="file-field input-field">
+		      <div class="btn grey">
+		        <span>File</span>
+		        <input type="file">
+		      </div>
+		      <div class="file-path-wrapper">
+		        <input class="file-path validate" type="text" placeholder="Upload file">
+		      </div>
+		    </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="fields" type="text" placeholder="Enter the unique field in the excel sheet that maps to a unique field in the table above." class="validate">
+          <label for="fields">Unique Field</label></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="right">
+          <button type="submit" class="btn orange darken-3">Update Excel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="/libs/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/libs/materialize/dist/js/materialize.min.js"></script>
+  <script>
+	  $(document).ready(function() {
+	    $('select').material_select();
+	  });			
+  </script>
+</body>
+</html>
+    
