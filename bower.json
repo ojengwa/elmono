@@ -25,6 +25,7 @@
     "tests"
   ],
   "dependencies": {
+    "jquery-form": "^3.46.0",
     "materialize": "^0.97.8"
   }
 }
