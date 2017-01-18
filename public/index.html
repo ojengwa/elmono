@@ -22,7 +22,7 @@
   <br>
   <div class="container">      
   <div class="row">
-    <form class="col s12 m8 l6 offset-l3 offset-m2">
+    <form class="col s12 m8 l6 offset-l3 offset-m2" action="/transform" method="post" id="form" enctype="multipart/formdata">
     	<div class="header">
     		<h6 class="title" style="text-transform: uppercase">DB Connection Config:</h6>
     	</div>
@@ -32,8 +32,8 @@
 			    <select id="connection" name="connection">
 			      <option value="" disabled selected>Choose your DB Server</option>
 			      <option value="sqlserver">MS SQL Server</option>
-			      <option value="2" disabled>Oracle DB Server</option>
-			      <option value="3">MySQL/MariaDB</option>
+			      <option value="oracle" disabled>Oracle DB Server</option>
+			      <option value="mysql">MySQL/MariaDB</option>
 			    </select>
           <label for="connection">DB Server</label>
         </div>
@@ -56,15 +56,15 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input name="host" id="host" type="text"  class="validate">
-          <label for="host">Database Name</label>
+          <input name="database" id="database" type="text"  class="validate">
+          <label for="database">Database Name</label>
         </div>
       </div>
       <div class="row">
         <div class="col s12">
 			    <p>
-			      <input type="checkbox" name="options[encrypt]" id="where" />
-			      <label for="where">My Server is hosted on Windows Azure.</label>
+			      <input type="checkbox" name="encrypt" value='true' id="encrypt" />
+			      <label for="encrypt">My Server is hosted on Windows Azure.</label>
 			    </p>
         </div>
       </div>
@@ -75,14 +75,14 @@
     	<br>
       <div class="row">
         <div class="input-field col s12">
-          <input id="table_name" type="text" class="validate">
+          <input id="table_name" name="table_name" type="text" class="validate">
           <label for="table_name">Table Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="fields" type="text" placeholder="Use comma to separate each field (eg: account, dob)" class="validate">
-          <label for="fields">Fields to import.</label></label>
+          <input id="fields" type="text" name="fields" placeholder="Use comma to separate each field (eg: account, dob)" class="validate">
+          <label for="fields">Columns to import.</label></label>
         </div>
       </div>
       <br>
@@ -91,20 +91,20 @@
     	</div>
     	<br>
       <div class="row">
-		    <div class="file-field input-field">
+		    <div class="file-field input-field" style="cursor: pointer;">
 		      <div class="btn grey">
 		        <span>File</span>
-		        <input type="file">
+		        <input type="file" accept=".xls|.csv|.xlsx" name="file"  style="cursor: pointer;">
 		      </div>
 		      <div class="file-path-wrapper">
-		        <input class="file-path validate" type="text" placeholder="Upload file">
+		        <input class="file-path validate"  type="text" placeholder="Upload file">
 		      </div>
 		    </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="fields" type="text" placeholder="Enter the unique field in the excel sheet that maps to a unique field in the table above." class="validate">
-          <label for="fields">Unique Field</label></label>
+          <input id="id" name="ref" type="text" placeholder="Enter the unique field in the excel sheet that maps to a unique field in the table above." class="validate">
+          <label for="id">Unique Field</label></label>
         </div>
       </div>
       <div class="row">
@@ -118,9 +118,31 @@
   <!--Import jQuery before materialize.js-->
   <script type="text/javascript" src="/libs/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="/libs/materialize/dist/js/materialize.min.js"></script>
+  <script type="text/javascript" src="/libs/jquery-form/jquery.form.js"></script>
   <script>
 	  $(document).ready(function() {
 	    $('select').material_select();
+      $("#form").ajaxForm({
+
+        beforeSerialize: function($form, options) {
+          console.log($form);
+        },
+
+        beforeSubmit: function(arr, $form, options) {
+          console.log(arr, $form, options)
+        },
+
+        clearForm: true,
+        dataType: 'json',
+
+        error: function(err) {
+          console.log(err);
+        },
+
+        success: function(res, status, xhr, $jquery) {
+          console.log((res, status, xhr, $jquery));
+        }
+      })
 	  });			
   </script>
 </body>
