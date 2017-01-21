@@ -21,8 +21,9 @@ function loadCollection(attrs, next) {
 		tableName: attrs.table_name
 	});
 
-	var workbook = xlsx.readFile(attrs.file.path);
-	var sheet_name_list = workbook.SheetNames;
+	let workbook = xlsx.readFile(attrs.file.path);
+	let sheet_name_list = workbook.SheetNames;
+
 	sheet_name_list.forEach(function (y) { /* iterate through sheets */
 		var worksheet = workbook.Sheets[y];
 		for (z in worksheet) {
