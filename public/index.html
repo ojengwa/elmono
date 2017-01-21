@@ -29,7 +29,7 @@
     	<br>
       <div class="row">
         <div class="input-field col s12">
-			    <select id="connection" name="connection">
+			    <select id="connection" name="connection" required>
 			      <option value="" disabled selected>Choose your DB Server</option>
 			      <option value="sqlserver">MS SQL Server</option>
 			      <option value="oracle" disabled>Oracle DB Server</option>
@@ -40,30 +40,30 @@
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input id="user" type="text" class="validate">
+          <input id="user" type="text" class="validate" required>
           <label for="user">Server Username</label>
         </div>
         <div class="input-field col s6">
-          <input id="pass" name="pass" type="text" class="validate">
+          <input id="pass" name="pass" type="text" class="validate" required>
           <label for="pass">Server Password</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input name="host" id="host" type="text"  class="validate">
+          <input name="host" id="host" type="text"  class="validate" required>
           <label for="host">Server Host</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input name="database" id="database" type="text"  class="validate">
+          <input name="database" id="database" type="text"  class="validate" required>
           <label for="database">Database Name</label>
         </div>
       </div>
       <div class="row">
         <div class="col s12">
 			    <p>
-			      <input type="checkbox" name="encrypt" value='true' id="encrypt" />
+			      <input type="checkbox" name="encrypt" value='true' id="encrypt"  required/>
 			      <label for="encrypt">My Server is hosted on Windows Azure.</label>
 			    </p>
         </div>
@@ -75,13 +75,13 @@
     	<br>
       <div class="row">
         <div class="input-field col s12">
-          <input id="table_name" name="table_name" type="text" class="validate">
+          <input id="table_name" name="table_name" type="text" class="validate" required>
           <label for="table_name">Table Name</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="fields" type="text" name="fields" placeholder="Use comma to separate each field (eg: account, dob)" class="validate">
+          <input id="fields" type="text" name="fields" placeholder="Use comma to separate each field (eg: account, dob)" class="validate" required>
           <label for="fields">Columns to import.</label></label>
         </div>
       </div>
@@ -94,16 +94,16 @@
 		    <div class="file-field input-field" style="cursor: pointer;">
 		      <div class="btn grey">
 		        <span>File</span>
-		        <input type="file" accept=".xls|.csv|.xlsx" name="file"  style="cursor: pointer;">
+		        <input type="file" accept=".xls|.csv|.xlsx" name="file"  style="cursor: pointer;" required>
 		      </div>
 		      <div class="file-path-wrapper">
-		        <input class="file-path validate"  type="text" placeholder="Upload file">
+		        <input class="file-path validate"  type="text" placeholder="Upload file" required>
 		      </div>
 		    </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="id" name="ref" type="text" placeholder="Enter the unique field in the excel sheet that maps to a unique field in the table above." class="validate">
+          <input id="id" name="ref" type="text" placeholder="Enter the unique field in the excel sheet that maps to a unique field in the table above." class="validate" required>
           <label for="id">Unique Field</label></label>
         </div>
       </div>
