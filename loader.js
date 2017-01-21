@@ -2,7 +2,8 @@
 
 const config = require('./config');
 const Waterline = require('waterline');
-const xlsx = require('xlsx');
+// const xlsx = require('xlsx');
+const xlsx = require('excel2json');
 
 // Create the waterline instance.
 const waterline = new Waterline();
@@ -15,10 +16,14 @@ function loadCollection(attrs, next) {
 		config.connections[connection].options.encrypt = attrs.encrypt.toLowerCase() === 'on' ? true : false;
 	}
 
-	var modelCollection = Waterline.Collection.extend({
+	let modelCollection = Waterline.Collection.extend({
 		identity: 'model',
 		connection: connection,
 		tableName: attrs.table_name
+	});
+
+	xlsx(attrs.file.path, (err, data) => {
+		console.log(err, data);
 	});
 
 	waterline.loadCollection(modelCollection);
