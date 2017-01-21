@@ -22,13 +22,13 @@ server.post('/transform', upload.single('file'), (req, res, next) => {
 	req.body.file = req.file;
 	console.log(req.body, 'here');
 
-	return loader.loadCollection(req.body, (err, data) => {
+	loader.loadCollection(req.body, (err, data) => {
 		if (err) {
 			res.error(err)
 		} else {
 			res.json(data)
 		}
-		next()
+		return next()
 	})
 });
 
