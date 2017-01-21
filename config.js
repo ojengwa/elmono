@@ -35,17 +35,18 @@ module.exports = {
 			collation: 'utf8_swedish_ci'
 		},
 
-		oracle: {
-			port: 3306,
-			host: 'localhost',
-			tns: '(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = sails_oracle)))',
-			user: 'USER',
-			password: '',
+		// oracle: {
+		// 	adapter: 'oracle',
+		// 	port: 3306,
+		// 	host: 'localhost',
+		// 	tns: '(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = sails_oracle)))',
+		// 	user: 'USER',
+		// 	password: '',
 
-			// drop   => Drop schema and data, then recreate it
-			// alter  => Drop/add columns as necessary, but try 
-			// safe   => Don't change anything (good for production DBs)
-			migrate: 'safe'
-		}
+		// 	// drop   => Drop schema and data, then recreate it
+		// 	// alter  => Drop/add columns as necessary, but try 
+		// 	// safe   => Don't change anything (good for production DBs)
+		// 	migrate: 'safe'
+		// }
 	}
 }
