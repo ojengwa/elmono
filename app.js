@@ -19,7 +19,10 @@ server.use('/', express.static("public"));
 
 
 server.post('/transform', upload.single('file'), (req, res, next) => {
-	console.log(req.file, req.body, 'here');
+	req.body.file = req.file;
+	console.log(req.body, 'here');
+
+	return loader.loadCollection(req.body, next)
 });
 
 server.listen(port, function () {
